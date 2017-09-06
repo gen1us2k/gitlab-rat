@@ -27,9 +27,13 @@ def info():
 
     daily_commits = []
     for current_date in week_list:
-        commits = date_list.count(current_date)
-        info_item = { current_date, commits}
-        daily_commits.append(info_item)
+        commit = date_list.count(current_date)
+        if commit:
+            info = ['за', current_date, 'коммитов было-', commit]
+            daily_commits.append(info)
+        else:
+            info = ['за', current_date, 'коммитов не было']
+            daily_commits.append(info)
     return daily_commits
 
 info = info()
